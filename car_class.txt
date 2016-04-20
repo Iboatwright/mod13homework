@@ -1,0 +1,92 @@
+Chapter 14 Programming Exercise 2. Car Class
+--------------------------------------------
+Design a class named Car that has the following fields:
+    ● yearModel: The yearModel field is an Integer that holds the car’s year
+      model.
+    ● make: The make field references a String that holds the make of the car.
+    ● speed: The speed field is an Integer that holds the car’s current speed.
+
+In addition, the class should have the following constructor and other
+    methods:
+    ● Constructor: The constructor should accept the car’s year model and make
+      as arguments. These values should be assigned to the object’s yearModel
+      and make fields. The constructor should also assign 0 to the speed
+      field.
+    ● Accessors: Design appropriate accessor methods to get the values stored
+      in an object’s yearModel, make, and speed fields.
+    ● accelerate: The accelerate method should add 5 to the speed field each
+      time it is called.
+    ● brake: The brake method should subtract 5 from the speed field each time
+      it is called.
+
+Next, design a program that creates a Car object, and then calls the
+    accelerate method five times. After each call to the accelerate method,
+    get the current speed of the car and display it. Then call the brake
+    method five times. After each call to the brake method, get the current
+    speed of the car and display it.
+
+
+Module main()
+    // Local variables for the car object's year_model and make
+    Declare Integer in_year_model
+    Declare String in_make
+
+    // Call input module to have user set in_year_model and in_make.
+    Call get_user_input(in_year_model, "year of the car's model")
+    Call get_user_input(in_make, "make of the car")
+
+    // A class variable to reference a Car object.
+    Declare Car car_car
+
+    // Created a new Car object
+    Set car_car = New Car(in_year_model, in_make)
+
+    // Call accelerate 5 times and print the speed after each call.
+    For i = 1 To 5
+        car_car.accelerate()
+        Display car_car.speed
+
+
+Class Car
+    // The year_model field is an Integer that holds the car’s year model.
+    Private Integer year_model
+
+    // The make field references a String that holds the make of the car.
+    Private String make
+
+    // The speed field is an Integer that holds the car’s current speed.
+    Private Integer speed
+
+    // The constructor accepts the car’s year model and make as arguments.
+    Public Module Car(Integer arg_year_model, String arg_make)
+        // Set year_model, make and set speed to 0
+        Set year_model = arg_year_model
+        Set make = arg_make
+        Set speed = 0
+    End Module
+
+    // Accessors to return class field values.
+    Public Function Integer get_year_model()
+        Return year_model
+    End Function
+
+    Public Function String get_make()
+        Return make
+    End Function
+
+    Public Function Integer get_speed()
+        Return speed
+    End Function
+
+    // accelerate adds 5 to the speed field.
+    Public Method accelerate()
+        Set speed = speed + 5
+    End Method
+
+    // brake subtracts 5 from the speed field.
+    Public Method brake()
+        If speed >= 5 Then
+            Set speed = speed - 5
+        End If
+    End Method
+End Class
