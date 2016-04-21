@@ -26,10 +26,15 @@ Next, design a program that creates a Car object, and then calls the
     speed of the car and display it.
 
 
+Pseudocode
+----------
 Module main()
     // Local variables for the car object's year_model and make
-    Declare Integer in_year_model
+    Declare String in_year_model
     Declare String in_make
+
+    // Display welcome message to user and describe the program.
+    Call fluffy_intro()
 
     // Call input module to have user set in_year_model and in_make.
     Call get_user_input(in_year_model, "year of the car's model")
@@ -39,14 +44,41 @@ Module main()
     Declare Car car_car
 
     // Created a new Car object
-    Set car_car = New Car(in_year_model, in_make)
+    Set car_car = New Car(int(in_year_model), in_make)
 
     // Call accelerate 5 times and print the speed after each call.
     For i = 1 To 5
         car_car.accelerate()
-        Display car_car.speed
+        Display 'Current speed:', car_car.get_speed()
+    End For
+
+    // Call break 5 times and print the speed after each call.
+    For i = 1 To 5
+        car_car.break()
+        Display 'Current speed:', car_car.get_speed()
+    End For
+    Display "Ride's over. Please exit to your left. "
+End Module
 
 
+// Displays an intro to the user.
+Module fluffy_intro()
+    Display 'Welcome to the Car Class program.'
+    Display 'This program demostrates the use of a Class by creating a car'
+    Display 'class and test driving it.'
+End Module
+
+
+// Gets an input from the user and assigns it by reference to the variable
+//    passed as the first parameter.  The second parameter is the description
+//    of the input being requested.
+Module get_user_input(String Ref in_var, String description)
+    Display 'Please input the', description, '.'
+    Input in_var
+End Module
+
+
+// Car class used to create car objects and drive them around.
 Class Car
     // The year_model field is an Integer that holds the car’s year model.
     Private Integer year_model
