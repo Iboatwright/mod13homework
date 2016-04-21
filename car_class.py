@@ -45,7 +45,7 @@ def main():
 # Displays an introduction to the program and describes what it does.
 def fluffy_intro():
     print('Welcome to the Car Class program.\n'
-          'This program demostrates the use of a Class by creating a car'
+          'This program demostrates the use of a Class by creating a car '
           'object\nand test driving it.')
     return None
 
